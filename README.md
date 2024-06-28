@@ -41,7 +41,7 @@ descripción de las mismas.
 **1-	Tabla País:** Contiene información del nombre de los países involucrados en la base de datos. Ésta tabla se relaciona por medio de su Primary Key (PK) con las tablas CIUDAD, JUGADORES y COMPETENCIA siendo una Foreign Key (FK) en éstas.
 ```
 | Tabla               | Columna               | Tipo de Datos                         | Tipo de Clave
-| --------------------| --------------------- | --------------------------------------|---------------
+| --------------------| --------------------- | --------------------------------------|--------------
 | Pais                | pais_id               | INT NOT NULL AUTO_INCREMENT           | PK
 |                     | nombre                | VARCHAR(255) NOT NULL                 |
 ```
@@ -52,7 +52,7 @@ descripción de las mismas.
 
 ```
 | Tabla                | Columna              | Tipo de Datos                         | Tipo de Clave
-| -------------------- | -------------------- | --------------------------------------|---------------
+| -------------------- | -------------------- | --------------------------------------|--------------
 | Ciudad               | ciudad_id            | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | nombre               | VARCHAR(255) NOT NULL                 |
 |                      | pais_id              | INT NOT NULL                          | FK
@@ -63,7 +63,7 @@ descripción de las mismas.
 
 ```
 | Tabla                | Columna              | Tipo de Datos                         | Tipo de Clave
-| -------------------- | -------------------- | --------------------------------------|---------------
+| -------------------- | -------------------- | --------------------------------------|--------------
 | Equipo               | equipo_id            | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | nombre               | VARCHAR(255) NOT NULL                 |
 |                      | ciudad_id            | INT NOT NULL                          | FK
@@ -75,7 +75,7 @@ descripción de las mismas.
 
 ```
 | Tabla                | Columna              | Tipo de Datos                         | Tipo de Clave
-| -------------------- | -------------------- | --------------------------------------|---------------
+| -------------------- | -------------------- | --------------------------------------|--------------
 | Competencia          | competencia_id       | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | nombre               | VARCHAR(255) NOT NULL                 |
 |                      | pais_id              | INT NOT NULL                          | FK
@@ -86,7 +86,7 @@ descripción de las mismas.
 
 ```
 | Tabla                | Columna              | Tipo de Datos                         | Tipo de Clave
-| -------------------- | -------------------- | --------------------------------------|---------------
+| -------------------- | -------------------- | --------------------------------------|--------------
 | Partido              | partido_id           | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | fecha                | DATE NOT NULL                         |
 |                      | equipo_local_id      | INT NOT NULL                          | FK
@@ -100,7 +100,7 @@ descripción de las mismas.
 
 ```
 | Tabla                | Columna              | Tipo de Datos                         | Tipo de Clave
-| -------------------- | -------------------- | --------------------------------------|---------------
+| -------------------- | -------------------- | --------------------------------------|--------------
 | Jugadores            | jugador_id           | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | nombre               | VARCHAR(255) NOT NULL                 |
 |                      | apellido             | VARCHAR(255) NOT NULL                 | 
@@ -119,7 +119,7 @@ descripción de las mismas.
 
 ```
 | Tabla                | Columna              | Tipo de Datos                         | Tipo de Clave
-| -------------------- | -------------------- | --------------------------------------|---------------
+| -------------------- | -------------------- | --------------------------------------|--------------
 | Estadisticas_Jugador | estadistica_id       | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | partido_id           | INT NOT NULL                          | FK
 |                      | jugador_id           | INT NOT NULL                          | FK
@@ -135,7 +135,7 @@ descripción de las mismas.
 
 ```
 | Tabla                | Columna               | Tipo de Datos                         | Tipo de Clave
-| -------------------- | --------------------- | --------------------------------------|---------------
+| -------------------- | --------------------- | --------------------------------------|--------------
 | Equipo_competencia   | equipo_competencia_id | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | equipo_id             | INT NOT NULL                          | FK
 |                      | competencia_id        | INT NOT NULL                          | FK
@@ -147,7 +147,7 @@ descripción de las mismas.
 
 ```
 | Tabla                | Columna               | Tipo de Datos                         | Tipo de Clave
-| -------------------- | --------------------- | --------------------------------------|---------------
+| -------------------- | --------------------- | --------------------------------------|--------------
 | Posiciones           | posicion_id           | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | equipo_competencia_id | INT NOT NULL                          | FK
 |                      | posicion              | INT NOT NULL                          | 
