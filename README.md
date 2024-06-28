@@ -1,6 +1,18 @@
-# futboldb
+# <center>Estructuración Base de Datos futboldb: Organización y Análisis de Información Deportiva</center>
 
-Base de Datos de Fútbol: Organización y Análisis de Información Deportiva
+**Alumno:** Blotta Matías
+
+**Comisión:** #57190
+
+**Tutor:** Ariel Annone
+
+**Profesor:** Anderson M.Torres
+
+**Lenguaje Utilizado:** SQL
+
+
+
+---
 
 
 ## Descripción de la Temática
