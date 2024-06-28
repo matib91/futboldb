@@ -1,3 +1,9 @@
+<center>
+<img src=https://drive.google.com/file/d/1awBXOR2pVNfqIqwcATDanJc8gelTYnva/view?usp=drive_link style="width: 100% ; aspect-ratio:16/9">
+</center>
+
+
+
 # <center>Estructuración Base de Datos futboldb: Organización y Análisis de Información Deportiva</center>
 
 **Alumno:** Blotta Matías
