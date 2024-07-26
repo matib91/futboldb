@@ -172,13 +172,266 @@ descripción de las mismas.
 
 ## Estructura e ingesta de datos
 
-•	Se realiza por medio del archivo population.sql
+* Se realiza por medio del archivo population.sql
 
 ## Objetos de la Base de Datos
 
 
 ### Documentacion de Vistas
-### 
+### Vista: view_jugadores_Lazio
 
+**Descripción:** Esta vista nos mostrará los jugadores que integran el plantel de Lazio, su posición y a qué país pertenecen.
+
+**Columnas:**
+
+* **Nombre:** Nombre del jugador
+* **Apellido:** Apellido del jugador
+* **Posición:** Posición dentro del plantel.
+* **Nacionalidad:** Nacionalidad del jugador.
+
+**Ejemplo de consulta:**
+
+```sql
+SELECT * 
+FROM futboldb.view_jugadores_lazio;
+```
+
+### Vista: view_cantidad_jugadores_equipo
+
+**Descripción:** Esta vista nos dará información acerca de la cantidad de jugadores que componen cada plantel y país al que pertenece dicho equipo presente en la base de datos.
+
+**Columnas:**
+
+* **Equipo:** Nombre del equipo
+* **País:** País al que pertenece el equipo
+* **Cantidad_jugadores:** Cantidad de jugadores que integran el plantel.
+
+**Ejempo de consulta:**
+
+```sql
+SELECT *
+FROM view_cantidad_jugadores_equipo;
+```
+
+### Vista: view_promedio_edad_altura_peso_posicion
+
+**Descripción:** La creación de esta vista nos resulta útil para conocer los promedios de edad, peso y altura por posición con los que cuenta cada plantel.
+
+**Nota:** Para el cálculo de la edad se toma en cuenta el día 23-06-01 para hacer el cálculo ya que la base de datos cuenta con partidos de este año.
+
+**Columnas:**
+
+* **Equipo:** Nombre del equipo.
+* **Posición:** Portero/Defensor/Mediocampista/Delantero.
+* **Promedio_edad:** Promedio de edad por equipo y posición.
+* **Promedio_altura:** Promedio de altura por equipo y posición.
+* **Promedio_peso:** Promedio de peso por equipo y posición.
+
+**Ejempo de consulta:**
+
+```sql
+SELECT *
+FROM view_promedio_edad_altura_peso_posicion
+WHERE equipo = 'River Plate';
+```
+
+### Vista: view_goleadores_liga_argentina
+
+**Descripción:** Esta vista mostrará los 5 máximos goleadores de la Liga Profesional Argentina.
+
+**Columnas:**
+
+* **Nombre:** Nombre del jugador.
+* **Apellido:** Apellido del jugador.
+* **Equipo:** Equipo al que pertenece.
+* **Total_goles:** Suma de los goles que tiene en el campeonato.
+
+**Ejemplo de consulta:**
+
+```sql
+SELECT *
+FROM view_goleadores_liga_argentina;
+```
+
+### Vista: view_punteros_distintas_ligas
+
+**Descripción:** Esta vista tiene el objetivo de visualizar quienes son los punteros de cada liga presente incluyendo los puntos respectivos con los que cuenta en la competencia.
+
+**Columnas:**
+
+* **Liga:** Nombre de la liga en la cual participa el equipo.
+* **Equipo:** Nombre del equipo puntero.
+* **Puntos:** Cantidad de puntos cosechados en la respectiva competición.
+
+**Ejemplo de consulta:**
+
+```sql
+SELECT *
+FROM view_punteros_distintas_ligas
+ORDER BY puntos DESC;
+```
+
+## Documentación de funciones:
+
+### Función: minutos_disputados_jugador
+
+**Descripción:** Función para conocer la cantidad de minutos disputados de un jugador X entre determinadas fechas.
+
+**Parámetros:**
+
+* **p_jugador_id:** Id del jugador.
+* **p_fecha_inicio:**  Fecha de inicio del intervalo (formato YYYY-MM-DD).
+* **p_fecha_fin:** Fecha de fin del intervalo (formato YYYY-MM-DD).
+
+**Retorno:**
+* Cantidad de minutos disputados por un jugador en el intervalo de tiempo especificado.
+
+**Ejemplo de uso:**
+
+```sql
+SELECT minutos_disputados_jugador(1, '2023-01-01', '2023-05-30') AS total_minutos;
+```
+
+### Función: cantidad_jugadores_por_pais
+
+**Descripción:** Función que calcula la cantidad de jugadores en la base de datos de acuerdo a un país al que pertenecen y devuelve un mensaje en caso de que no haya jugadores de ese país.
+
+**Parámetros:**
+
+* **p_nombre_pais:** Nombre del país.
+
+**Retorno:**
+
+* Mensaje: En el caso que el país esté presente en la base de datos retornará la cantidad de jugadores que corresponden a ese país. Caso contrario retornará el mensaje “No hay datos de jugadores del país”.
+
+**Ejemplo de uso:**
+
+```sql
+SELECT cantidad_jugadores_por_pais('Argentina') AS mensaje;
+```
+
+### Función: edad_jugador
+
+**Descripción:** Esta función calculará la edad de un jugador en años pasándole como parámetros el nombre, apellido y club al que pertenece.
+
+**Nota:** Como fecha actual se utiliza el día 2023-06-01 (dado que es el último registro insertado en la base de datos de la temporada 2023).
+
+**Parámetros:**
+
+* **p_nombre:** Nombre del jugador
+* **p_apellido:** Apellido del jugador
+* **p_nombre_equipo:** Equipo al que pertenece el jugador.
+
+**Retorno:** Devolverá la edad en años del jugador.En caso que no haya coincidencias saldrá el mensaje: No se encontró el jugador o equipo especificado.
+
+**Ejemplo de uso:**
+
+```sql
+SELECT edad_jugador('Ignacio', 'Scocco', 'River Plate') AS edad;
+```
+
+## Documentación de triggers:
+
+### Trigger: after_insert_trigger
+
+**Descripción:** Registra la inserción de un nuevo jugador en la tabla log_nuevos_registros.
+
+**Detalles:**
+
+* **Tabla afectada:** Jugadores
+* **Acción:** Insert
+* **Información registrada:** fecha, id_jugador,nombre, apellido, equipo_id, usuario que realiza la inserción.
+
+**Ejemplo:**
+
+* Se inserta un nuevo jugador en la tabla jugadores.
+* El trigger registra la acción en la tabla log_nuevos_registros con los detalles.
+
+### Trigger: before_insert_trigger
+
+**Descripción:** Este trigger está diseñado para ejecutarse antes de la operación de inserción (donde una incorrecta inserción de datos en la tabla jugadores como ser nombre y apellido todo en mayúsculas o todo en minúscula lo convertirá al formato correspondiente).
+
+**Detalles:**
+
+* **Tabla afectada:** Jugadores
+* **Acción:** Insert
+* **Validación:** Correcta escritura del Nombre y Apellido del jugador.
+
+**Ejemplo:** 
+
+* Se intenta insertar el nombre y apellido de un jugador todo en mayúsculas (ejemplo: ‘LUCAS’, ‘BERMUDEZ’). 
+* El trigger se dispara y corrige la inserción al formato correcto ‘Lucas’, ‘Bermudez’).
+
+
+## Documentación de Procedimientos Almacenados
+
+### Procedimiento: ingreso_nuevo_jugador
+
+**Descripción:** Inserta un nuevo jugador en la tabla jugadores utilizando los valores proporcionados como parámetros de entrada, validando si existe o no el jugador, el equipo y el país, de lo contrario arrojará error.
+
+**Parámetros:**
+
+* **p_nombre:** Nombre del jugador.
+* **p_apellido:** Apellido del jugador.
+* **p_equipo_id:** Id del equipo.
+* **p_pais_id:** Nacionalidad del jugador.
+* **p_posicion:** Posición del jugador.
+* **p_fecha_nac:** Fecha de nacimiento.
+* **p_altura:** Altura del jugador.
+* **p_peso:** Peso del jugador.
+* **p_pierna_habil:** Pierna hábil del jugador.
+
+**Retorno:**
+
+* Mensaje de éxito o error (‘El país no existe’, ‘El equipo no existe’ o ‘El jugador ya existe en la base de datos’).
+
+**Ejemplo de uso:**
+
+```sql
+CALL ingreso_nuevo_jugador('Claudo','Echeverri',1,1,'Delantero','2006-01-02',1.71,62.00,'Izquierda');
+```
+
+### Procedimiento: actualizar_equipo_jugador
+
+**Descripción:** El objetivo de la creación de este procedimiento es la actualización del equipo al que pertenece un jugador. Este procedimiento será realmente útil en época de mercado de pases donde los jugadores son transferidos de un equipo a otro.
+
+**Parámetros:**
+
+* **p_jugador_id:** Id del jugador
+* **p_nuevo_equipo_id:** Id del nuevo equipo del jugador.
+
+**Retorno:**
+
+* Mensaje de éxito o error (‘El jugador no existe’ o ‘El nuevo equipo no existe’ en caso que no estén presentes en la base).
+
+**Ejemplo de uso:**
+
+```sql
+CALL actualizar_equipo_jugador(239, 11);
+```
+
+### Procedimiento: registrar_partido
+
+**Descripción:** Procedimiento almacenado diseñado para ingresar nuevos registros de partidos y que a su vez actualiza las posiciones, es decir que si el equipo ganó le sume 3 puntos en la tabla posiciones, si empató le sume 1 y si perdió no sume puntos.
+
+**Nota:** Utilizamos las funciones SUBSTRING_INDEX y CAST para extraer y convertir los goles del formato goles_local-goles_visitante.
+
+**Parámetros:**
+
+* **p_fecha:** Fecha del nuevo partido a registrar.
+* **p_equipo_local_id:** Id del equipo local.
+* **p_equipo_visitante_id:** Id del equipo visitante.
+* **p_resultado:** Resultado del encuentro.
+* **p_competencia_id:** Id de la competencia a la cual pertenece el partido.
+
+**Retorno:**
+
+* Mensaje de éxito o error.
+
+**Ejemplo de uso:**
+
+```sql
+CALL registrar_partido('2023-06-01', 1, 2, '5-0', 1);
+```
 
 
