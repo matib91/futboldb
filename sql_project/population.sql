@@ -584,12 +584,3 @@ INSERT INTO posiciones (posicion, puntos, equipo_competencia_id) VALUES
 (4,20,15),
 (3,24,16);
 
-SELECT * FROM ciudad;
-SELECT * FROM competencia;
-SELECT * FROM equipo;
-SELECT * FROM equipo_competencia;
-SELECT * FROM estadisticas_jugador;
-SELECT * FROM jugadores;
-SELECT * FROM pais;
-SELECT * FROM partido;
-SELECT * FROM posiciones;
