@@ -2,6 +2,7 @@ USE futboldb;
 
 DROP PROCEDURE IF EXISTS ingreso_nuevo_jugador ;
 DROP PROCEDURE IF EXISTS actualizar_equipo_jugador ;
+DROP PROCEDURE IF EXISTS registrar_partido ;
 
 -- SP: ingreso_nuevo_jugador : Inserta un nuevo jugador en la tabla jugadores utilizando los valores proporcionados como parámetros de entrada validando
 -- si existe o no el pais, de lo contrario arrojará error.
@@ -74,15 +75,6 @@ END //
 
 DELIMITER ;
 
--- Ejemplo de llamado al SP donde el jugador ya existe en la base de datos. Arrojará el error 'El jugador ya existe en la base de datos'
-
-CALL ingreso_nuevo_jugador('Lionel','Messi',11, 1,'Delantero','1987-06-24', 1.70, 72.00, 'Izquierda');
-
--- Ejemplo de inserción de un nuevo jugador
-
-CALL ingreso_nuevo_jugador('Claudo','Echeverri',1,1,'Delantero','2006-01-02',1.71,62.00,'Izquierda');
-
-
 -- SP : actualizar_equipo_jugador
 -- El objetivo de la creación de este procedimiento es la actualización del equipo al que pertenece un jugador. Este SP será realmente útil en época de mercado
 -- de pases donde los jugadores son transferidos de un equipo a otro
@@ -116,14 +108,6 @@ BEGIN
 END //
 
 DELIMITER ;
-
--- Probamos el Stored Procedured con el futbolista Claudio Echeverri cuyo id=239 y su nuevo equipo = 11 (Barcelona).
-
-CALL actualizar_equipo_jugador(239, 11);
--- Chequeamos que los datos hayan sido actualizados, vemos que Claudio Echeverri ya pertenece a Barcelona
-SELECT * 
-FROM jugadores
-WHERE equipo_id = 11 AND apellido= 'Echeverri';
 
 
 -- SP registrar_partido
@@ -192,10 +176,4 @@ END //
 DELIMITER ;
 
 
--- Llamamos al SP donde insertamos datos de un nuevo partido y verificamos los cambios
-
-CALL registrar_partido('2023-06-01', 1, 2, '5-0', 1);
-
--- SELECT * FROM posiciones; 
--- SELECT * FROM partido;
 

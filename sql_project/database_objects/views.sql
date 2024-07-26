@@ -16,10 +16,6 @@ ON j.pais_id = p.pais_id
 WHERE j.equipo_id = 14
 ORDER BY posicion;
 
--- Ejemplo de consulta
-
-SELECT * 
-FROM futboldb.view_jugadores_lazio;
 
 -- VISTA: view_cantidad_jugadores_equipo
 -- Esta vista nos dará información acerca de la cantidad de jugadores que componen cada plantel y país al que pertenece dicho equipo presente en la base de datos
@@ -40,11 +36,6 @@ ON c.pais_id = p.pais_id
 GROUP BY e.equipo_id, e.nombre, p.nombre
 ORDER BY cantidad_jugadores DESC;
     
--- Ejemplo de consulta de la vista
-
-SELECT *
-FROM view_cantidad_jugadores_equipo;
-
 
 
 -- VISTA : view_promedio_edad_altura_peso_posicion
@@ -63,12 +54,6 @@ FROM equipo AS e
 JOIN jugadores AS j
 ON e.equipo_id = j.equipo_id
 GROUP BY e.nombre, j.posicion;
-
-
--- Ejemplo de consulta de la vista
-SELECT *
-FROM view_promedio_edad_altura_peso_posicion
-WHERE equipo = 'River Plate';
 
 
 -- VISTA: view_goleadores_liga_argentina
@@ -95,10 +80,6 @@ GROUP BY j.jugador_id, j.nombre, j.apellido , e.nombre
 ORDER BY total_goles DESC
 LIMIT 5 ;
 
--- Ejemplo de consulta de la vista
-SELECT *
-FROM view_goleadores_liga_argentina;
-
 
 -- VISTA : view_punteros_distintas_ligas
 -- Esta vista tiene el objetivo de visualizar quienes son los punteros de cada liga presente incluyendo los puntos respectivos con los que cuenta en la competencia
@@ -118,14 +99,6 @@ JOIN competencia AS c
 ON ec.competencia_id = c.competencia_id
 WHERE p.posicion = 1
 ORDER BY c.nombre ;
-
--- Ejemplo de consulta de la vista
-
-SELECT *
-FROM view_punteros_distintas_ligas
-ORDER BY puntos DESC;
-
-
 
 
 				

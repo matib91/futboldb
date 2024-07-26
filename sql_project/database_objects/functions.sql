@@ -30,10 +30,6 @@ END //
 
 DELIMITER ;
 
--- Probamos la función con el Jugador Ignacio Scocco jugador_id=1
-
-SELECT minutos_disputados_jugador(1, '2023-01-01', '2023-05-30') AS total_minutos;
-
 
 -- FUNCION cantidad_jugadores_por_pais
 -- Función que calcula la cantidad de jugadores en la base de datos de acuerdo a un país al que pertenecen, 
@@ -67,11 +63,6 @@ BEGIN
 END //
 
 DELIMITER ;
-
--- Llamamos a la función probándolo con el pais Argentina (existe en la base) y con Nigeria (No existe en la base)-
-
-SELECT cantidad_jugadores_por_pais('Argentina') AS mensaje;
-SELECT cantidad_jugadores_por_pais('Nigeria') AS mensaje;
 
 
 -- FUNCIÓN edad_jugador
@@ -125,9 +116,3 @@ BEGIN
 END //
 
 DELIMITER ;
-
-
--- LLamamos a la función para averiguar la edad del jugador de River Plate, Ignacio Scocco.
-
-SELECT edad_jugador('Ignacio', 'Scocco', 'River Plate') AS edad;
-

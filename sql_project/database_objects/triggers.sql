@@ -39,18 +39,6 @@ END //
 DELIMITER ;
 
 
-
--- Realizamos la inserción de un nuevo registro en la tabla Jugadores y corroboramos que quede asentado en la tabla log_nuevos_registros gracias al trigger.
-
-INSERT INTO jugadores (nombre, apellido, equipo_id, pais_id, posicion, fecha_nac, altura, peso, pierna_habil)
-VALUES ('Agustín', 'Ruberto', 1, 1, 'Delantero', '2006-01-14', 1.80, 74.00, 'Derecha');
-
--- Revisamos el contenido de la nueva tabla log_nuevos_registros
-
-SELECT * FROM log_nuevos_registros;
-
-
-
 -- TRIGGER: before_insert_trigger
 -- Este trigger está diseñado para ejecutarse antes de la operación de inserción (donde una incorrecta inserción de datos en la tabla jugadores como ser nombre y apellido todo en mayúsculas o
 -- todo en minúscula lo convertirá al formato correspondiente).
@@ -70,22 +58,4 @@ BEGIN
 END //
 
 DELIMITER ;
-
--- Probamos el funcionamiento mediante la inserción de 2 nuevos jugadores, uno con nombre y apellido todo en mayúsculas y el restante en minúscula.alter
-
-INSERT INTO jugadores (nombre, apellido, equipo_id, pais_id, posicion, fecha_nac, altura, peso, pierna_habil) 
-VALUES ('LUCAS', 'BERMUDEZ', 2, 2, 'Defensor', '1989-08-05', 1.87, 83.00, 'Derecha');
-
-
-INSERT INTO jugadores (nombre, apellido, equipo_id, pais_id, posicion, fecha_nac, altura, peso, pierna_habil) 
-VALUES ('juan', 'rodriguez', 5, 3, 'Portero', '1988-02-07', 1.95, 83.00, 'Derecha');
-
--- Chequeamos en la tabla jugadores 
-SELECT * 
-FROM jugadores;
-
--- Corroboramos también en la tabla que almacena los nuevos registros.
-
-SELECT *
-FROM log_nuevos_registros;
 
