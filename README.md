@@ -170,9 +170,11 @@ descripción de las mismas.
 
 
 
-### Estructura e ingesta de datos
+## Estructura e ingesta de datos
 
-•	Se realiza por medio del archivo inserción_datos.sql
+•	Se realiza por medio del archivo population.sql
+
+## Objetos de la Base de Datos
 
 
 ### Documentacion de Vistas
