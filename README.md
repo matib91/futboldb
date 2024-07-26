@@ -170,6 +170,13 @@ descripción de las mismas.
 
 
 
+### Estructura e ingesta de datos
+
+•	Se realiza por medio del archivo inserción_datos.sql
+
+
+### Documentacion de Vistas
+### 
 
 
 
