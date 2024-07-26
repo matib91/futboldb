@@ -70,8 +70,6 @@ DELIMITER ;
 -- Nota: Como fecha actual se utiliza el día 2023-06-01 (dado que es el último registro insertado en la base de datos de la temporada 2023). 
 -- En caso que no haya coincidencias saldrá el mensaje: No se encontró el jugador o equipo especificado
 
-DROP FUNCTION IF EXISTS edad_jugador
-
 DELIMITER //
 
 CREATE FUNCTION edad_jugador(
