@@ -60,7 +60,7 @@ Esta base de datos no solo busca resolver los problemas actuales de desorganizac
 
 ### DER Obtenido por Reverse Engineer en MySQL
 
-![image](https://github.com/matib91/futboldb/blob/main/DER-MySQL.png?raw=true)
+[![DER-My-SQL.png](https://i.postimg.cc/h4bCgbpH/DER-My-SQL.png)](https://postimg.cc/dD3RjdMB)
 
 
 ## Listado de tablas
