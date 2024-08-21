@@ -58,7 +58,9 @@ Esta base de datos no solo busca resolver los problemas actuales de desorganizac
 
 ![image](https://github.com/matib91/futboldb/assets/112019483/dc53e6ac-7c47-479d-9bc3-d6a8250cab7c)
 
+### DER Obtenido por Reverse Engineer en MySQL
 
+![image](https://github.com/matib91/futboldb/blob/main/DER-MySQL.png?raw=true)
 
 
 ## Listado de tablas
