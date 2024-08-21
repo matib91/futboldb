@@ -1,6 +1,6 @@
 ![alt text](image.png)
 
-# <center>Estructuración Base de Datos futboldb: Organización y Análisis de Información Deportiva</center>
+# <center> Entrega Final- Proyecto SQL Coderhouse - Fútbol DB: Centralización y Análisis de Datos en el Mundo del Fútbol </center>
 
 **Alumno:** Blotta Matías
 
@@ -17,28 +17,42 @@
 ---
 
 
-## Descripción de la Temática
+## Introducción : Descripción de la Temática
 
-La base de datos que estamos desarrollando se centra en el mundo del fútbol. Ésta base de datos busca organizar y relacionar datos relevantes para facilitar el análisis y la gestión de información relacionada con este apasionante deporte.
-En la base de datos, cada país puede tener varias ciudades, y cada ciudad puede albergar uno o más equipos de fútbol. Los equipos, a su vez, participan en diversas competencias, tanto nacionales como internacionales, lo que implica una relación compleja entre países, ciudades, equipos y competencias.
-Cada competencia cuenta con una serie de partidos, donde los equipos compiten entre sí. Además, se registran las estadísticas individuales de los jugadores en cada partido, como la cantidad de goles anotados, asistencias y tarjetas. Esta información permite un análisis detallado del desempeño de los jugadores y equipos a lo largo de las competencias.
+La base de datos que estamos desarrollando se enfoca en el mundo del fútbol, un deporte con una rica y compleja estructura organizativa que involucra múltiples niveles de datos. Esta base de datos tiene el propósito de centralizar y organizar información relevante para facilitar el análisis y la gestión de datos relacionados con equipos, jugadores, competencias y estadísticas. Al integrar datos de diferentes fuentes y formatos, buscamos ofrecer una solución integral que facilite el acceso y análisis de la información, permitiendo una mejor toma de decisiones y un análisis detallado del desempeño en el ámbito del fútbol.
 
-Problemas que soluciona la creación de esta Base de Datos
-La creación de esta base de datos viene a solucionar varios problemas clave en el ámbito del fútbol:
+## Objetivo
 
-**1.	Desorganización de Datos:** Actualmente, la información sobre equipos, jugadores, competencias y estadísticas está dispersa en diferentes fuentes y formatos, lo que dificulta su acceso y análisis. Esta base de datos centraliza toda la información relevante, facilitando su manejo y consulta.
+El principal objetivo de esta base de datos es proporcionar una plataforma robusta para almacenar, organizar y analizar datos del fútbol de manera eficiente. Esto incluye:
 
-**2.	Análisis Ineficiente:** Sin una estructura de datos bien organizada, es complicado realizar análisis detallados sobre el desempeño de jugadores y equipos. Con esta base de datos, es posible realizar análisis complejos y obtener insights valiosos sobre el rendimiento en diferentes competencias.
+1. Centralizar la información sobre equipos, jugadores, competencias, y estadísticas.
+2. Facilitar el análisis detallado del rendimiento de jugadores y equipos en diferentes competencias.
+3. Mejorar la gestión de la información para clubes, asociaciones y federaciones.
+4. Ofrecer una herramienta que permita el seguimiento preciso del desempeño a lo largo del tiempo.
+5. Permitir la comparación y análisis de datos a nivel internacional, dado el carácter global del fútbol.
 
-**3.	Gestión de Información:** Los clubes, asociaciones y federaciones de fútbol requieren una gestión eficiente de la información para la toma de decisiones y la planificación estratégica. Esta base de datos proporciona una herramienta robusta para gestionar y acceder a información clave de manera rápida y eficiente.
+## Situación Problemática
 
-**4.	Seguimiento de Desempeño:** Permite un seguimiento detallado y preciso del desempeño de jugadores y equipos a lo largo del tiempo, proporcionando datos históricos que son esenciales para la evaluación y mejora continua.
+Actualmente, la información sobre fútbol se encuentra dispersa en diversas fuentes y formatos, lo que presenta varios problemas:
 
-**5.	Compatibilidad Internacional:** Dada la naturaleza global del fútbol, es crucial tener una base de datos que pueda manejar información de competencias internacionales, facilitando la comparación y análisis de datos a nivel mundial.
+1. Desorganización de Datos: La información está fragmentada, dificultando el acceso y la consolidación de datos relevantes.
+2. Análisis Ineficiente: Sin una estructura de datos bien definida, es complicado realizar análisis detallados sobre el desempeño de jugadores y equipos.
+3. Gestión de Información: La falta de una herramienta centralizada para gestionar la información afecta la eficiencia en la toma de decisiones y planificación estratégica.
+4. Seguimiento de Desempeño: Es difícil realizar un seguimiento continuo y preciso del desempeño histórico de jugadores y equipos.
+5. Compatibilidad Internacional: La falta de un sistema capaz de manejar datos de competencias internacionales dificulta la comparación global y el análisis de datos a nivel mundial.
 
+## Modelo de Negocio
 
+El modelo de negocio para esta base de datos se basa en ofrecer una solución integral para la gestión y análisis de información en el ámbito del fútbol. Este modelo incluye:
 
-En resumen, esta base de datos tiene como objetivo principal almacenar y organizar información relevante para el seguimiento y análisis del mundo del fútbol, brindando una plataforma sólida para la gestión de datos relacionados con este deporte a nivel nacional e internacional. Esto no solo mejora la eficiencia en la gestión de información, sino que también potencia la capacidad de análisis y toma de decisiones en el ámbito del fútbol.
+1. Centralización de Datos: Proporcionar una plataforma única donde se consolida toda la información relevante sobre fútbol, facilitando su gestión y consulta.
+2. Servicios de Análisis: Ofrecer herramientas avanzadas de análisis para evaluar el rendimiento de jugadores y equipos, proporcionando insights valiosos para clubes y asociaciones.
+3. Gestión de Información: Facilitar la administración eficiente de datos para la toma de decisiones estratégicas, mejorando la planificación y la gestión operativa.
+4. Acceso Internacional: Permitir la integración y comparación de datos a nivel mundial, satisfaciendo las necesidades de competencias internacionales y comparativas globales.
+5. Valor Añadido: Ofrecer valor añadido a través de informes, análisis y visualizaciones que mejoren la comprensión y la toma de decisiones en el ámbito del fútbol.
+
+Esta base de datos no solo busca resolver los problemas actuales de desorganización y análisis ineficiente, sino que también pretende proporcionar una herramienta valiosa para la gestión y el análisis del fútbol a nivel global.
+
 
 ## Diagrama de Entidad- Relación (DER) 
 
