@@ -185,7 +185,7 @@ En este apartado se hará mención de cada una de las tablas junto a una descrip
 |                      | puntos                | INT NOT NULL                          | 
 
 
-**10-   Tabla log_nuevos_registros:**Esta tabla fué creada con el propósito de registrar de manera automática cada vez que se inserta un nuevo jugador en la tabla jugadores.Este registro automático es gestionado por un trigger llamado after_insert_trigger, que se activa inmediatamente después de que se inserta un nuevo jugador en la tabla jugadores. El trigger inserta en log_nuevos_registros información relevante como la fecha de inserción, los datos del jugador (nombre, apellido, equipo) y el usuario que realizó la acción. Esto es útil para auditorías, mantener la integridad de los datos y verificar qué usuarios han realizado cambios en la base de datos.
+**10-   Tabla log_nuevos_registros:** Esta tabla fué creada con el propósito de registrar de manera automática cada vez que se inserta un nuevo jugador en la tabla jugadores.Este registro automático es gestionado por un trigger llamado after_insert_trigger, que se activa inmediatamente después de que se inserta un nuevo jugador en la tabla jugadores. El trigger inserta en log_nuevos_registros información relevante como la fecha de inserción, los datos del jugador (nombre, apellido, equipo) y el usuario que realizó la acción. Esto es útil para auditorías, mantener la integridad de los datos y verificar qué usuarios han realizado cambios en la base de datos.
 
 
 | Tabla                | Columna               | Tipo de Datos                         | Tipo de Clave
