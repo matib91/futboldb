@@ -470,3 +470,9 @@ También hemos creados dos ROLES:
 Por último, creamos dos usuarios más: ‘cuerpo_tecnico’ al cual se le otorgó el rol: rol_select_tablas e ‘interno_club’ asignándole el rol: rol_crud_futbol respectivamente.
 
 Asignar estos roles con permisos limitados no solo mejora la seguridad, sino que también optimiza el flujo de trabajo, asegurando que cada usuario se enfoque en sus responsabilidades sin riesgos innecesarios. Esto crea un entorno de trabajo más organizado, seguro y eficiente, en el cual las tareas y permisos están claramente definidos.
+
+## Back up de la base de datos
+
+Se ha añadido un script del [backup](https://github.com/matib91/futboldb/blob/main/sql_project/backup/bk_futboldb.sql) de la base de datos desarrollada en este proyecto.
+
+Adicionalmente se puede generar el comando `make backup-db` en **CodeSpaces**, el cual permite ejecutar un backup de la base de datos de manera manual.
