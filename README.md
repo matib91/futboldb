@@ -67,59 +67,58 @@ Esta base de datos no solo busca resolver los problemas actuales de desorganizac
 
 ## Listado de tablas
 
-En este apartado se hará mención de cada una de las tablas junto a una breve
-descripción de las mismas.
+En este apartado se hará mención de cada una de las tablas junto a una descripción de las mismas.
 
-**1-	Tabla País:** Contiene información del nombre de los países involucrados en la base de datos. Ésta tabla se relaciona por medio de su Primary Key (PK) con las tablas CIUDAD, JUGADORES y COMPETENCIA siendo una Foreign Key (FK) en éstas.
+**1-	Tabla país:** Contiene información del nombre de los países involucrados en la base de datos. Ésta tabla se relaciona por medio de su Primary Key (PK) con las tablas CIUDAD, JUGADORES y COMPETENCIA siendo una Foreign Key (FK) en éstas.
 
 | Tabla               | Columna               | Tipo de Datos                         | Tipo de Clave
 | --------------------| --------------------- | --------------------------------------|--------------
-| Pais                | pais_id               | INT NOT NULL AUTO_INCREMENT           | PK
+| pais                | pais_id               | INT NOT NULL AUTO_INCREMENT           | PK
 |                     | nombre                | VARCHAR(255) NOT NULL                 |
 
 
  
 
-**2-	Tabla Ciudad:** Contiene nombres de ciudades que pertenecen a distintos países en las cuales se localizan los distintos equipos. Se relaciona con la tabla PAÍS (por intermedio de la FK pais_id) y con la tabla EQUIPO (por intermedio de su PK que se presenta como FK en la tabla equipo).
+**2-	Tabla ciudad:** Contiene nombres de ciudades que pertenecen a distintos países en las cuales se localizan los distintos equipos. Se relaciona con la tabla PAÍS (por intermedio de la FK pais_id) y con la tabla EQUIPO (por intermedio de su PK que se presenta como FK en la tabla equipo).
 
 
 | Tabla                | Columna              | Tipo de Datos                         | Tipo de Clave
 | -------------------- | -------------------- | --------------------------------------|--------------
-| Ciudad               | ciudad_id            | INT NOT NULL AUTO_INCREMENT           | PK
+| ciudad               | ciudad_id            | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | nombre               | VARCHAR(255) NOT NULL                 |
 |                      | pais_id              | INT NOT NULL                          | FK
 
 
 
-**3-	Tabla Equipo:** Incluye información sobre los equipos de fútbol involucrados. Se relaciona con la tabla CIUDADES (por intermedio de la FK ciudad_id) y con la tabla EQUIPOCOMPETENCIA (por intermedio de su PK equipo_id), con la tabla JUGADORES (a través de su PK equipo_id que se presenta como FK en la tabla JUGADORES) y con la tabla PARTIDO (gracias a su PK equipo_id que se presenta como FK en las columnas equipo_local_id y equipo_visitante_id de la tabla PARTIDO).
+**3-	Tabla equipo:** Incluye información sobre los equipos de fútbol involucrados. Se relaciona con la tabla CIUDAD (por intermedio de la FK ciudad_id) y con la tabla EQUIPOCOMPETENCIA (por intermedio de su PK equipo_id), con la tabla JUGADORES (a través de su PK equipo_id que se presenta como FK en la tabla JUGADORES) y con la tabla PARTIDO (gracias a su PK equipo_id que se presenta como FK en las columnas equipo_local_id y equipo_visitante_id de la tabla PARTIDO).
 
 
 | Tabla                | Columna              | Tipo de Datos                         | Tipo de Clave
 | -------------------- | -------------------- | --------------------------------------|--------------
-| Equipo               | equipo_id            | INT NOT NULL AUTO_INCREMENT           | PK
+| equipo               | equipo_id            | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | nombre               | VARCHAR(255) NOT NULL                 |
 |                      | ciudad_id            | INT NOT NULL                          | FK
 
 
 
 
-**4-	Tabla Competencia:** Contiene información sobre las distintas competencias/ligas. Se relaciona con la tabla PAÍS (por intermedio de la FK pais_id), con la tabla EQUIPO_COMPETENCIA (por intermedio de su PK competencia_id ) y con la tabla PARTIDOS (ya que su PK competencia_id se presenta como FK en la tabla PARTIDO).
+**4-	Tabla competencia:** Contiene información sobre las distintas competencias/ligas. Se relaciona con la tabla PAÍS (por intermedio de la FK pais_id), con la tabla EQUIPO_COMPETENCIA (por intermedio de su PK competencia_id ) y con la tabla PARTIDO (ya que su PK competencia_id se presenta como FK en la tabla PARTIDO).
 
 
 | Tabla                | Columna              | Tipo de Datos                         | Tipo de Clave
 | -------------------- | -------------------- | --------------------------------------|--------------
-| Competencia          | competencia_id       | INT NOT NULL AUTO_INCREMENT           | PK
+| competencia          | competencia_id       | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | nombre               | VARCHAR(255) NOT NULL                 |
 |                      | pais_id              | INT NOT NULL                          | FK
 
 
 
-**5-	Tabla Partido:** Posee información sobre los partidos de fútbol disputados, fecha del encuentro, a que competencia pertenece y resultado del mismo. Se relaciona con la tabla EQUIPO (por intermedio de las FKs equipo_local_id y equipo_visitante_id), con la tabla COMPETENCIA (por intermedio de la FK competencia_id) y con la tabla ESTADÍSTICAS_JUGADOR (por intermedio de su PK partido_id que se presenta como FK en la tabla ESTADÍSTICAS_JUGADOR).
+**5-	Tabla partido:** Posee información sobre los partidos de fútbol disputados, fecha del encuentro, equipos involucrados, a que competencia pertenece y resultado del mismo. Se relaciona con la tabla EQUIPO (por intermedio de las FKs equipo_local_id y equipo_visitante_id), con la tabla COMPETENCIA (por intermedio de la FK competencia_id) y con la tabla ESTADÍSTICAS_JUGADOR (por intermedio de su PK partido_id que se presenta como FK en la tabla ESTADÍSTICAS_JUGADOR).
 
 
 | Tabla                | Columna              | Tipo de Datos                         | Tipo de Clave
 | -------------------- | -------------------- | --------------------------------------|--------------
-| Partido              | partido_id           | INT NOT NULL AUTO_INCREMENT           | PK
+| partido              | partido_id           | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | fecha                | DATE NOT NULL                         |
 |                      | equipo_local_id      | INT NOT NULL                          | FK
 |                      | equipo_visitante_id  | INT NOT NULL                          | FK
@@ -128,12 +127,12 @@ descripción de las mismas.
 
 
 
-**6-	Tabla Jugadores:** Guarda información sobre los jugadores de fútbol, así como a qué equipo y país pertenecen. Se relaciona con la tabla EQUIPO (por intermedio de la FK equipo_id) y con la tabla PAÍS (por intermedio de la FK pais_id) y con la tabla ESTADÍSTICAS_JUGADOR (por intermedio de su PK jugador_id que se presenta como FK en la tabla ESTADÍSTICAS_JUGADOR).
+**6-	Tabla jugadores:** Guarda información relevante sobre los jugadores de fútbol, como ser fecha de nacimiento, posición en la que se desempeña, altura, peso , pierna hábil, así como a qué equipo y país pertenecen. Se relaciona con la tabla EQUIPO (por intermedio de la FK equipo_id) y con la tabla PAÍS (por intermedio de la FK pais_id) y con la tabla ESTADÍSTICAS_JUGADOR (por intermedio de su PK jugador_id que se presenta como FK en la tabla ESTADÍSTICAS_JUGADOR).
 
 
 | Tabla                | Columna              | Tipo de Datos                         | Tipo de Clave
 | -------------------- | -------------------- | --------------------------------------|--------------
-| Jugadores            | jugador_id           | INT NOT NULL AUTO_INCREMENT           | PK
+| jugadores            | jugador_id           | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | nombre               | VARCHAR(255) NOT NULL                 |
 |                      | apellido             | VARCHAR(255) NOT NULL                 | 
 |                      | equipo_id            | INT NOT NULL                          | FK
@@ -147,12 +146,12 @@ descripción de las mismas.
 
  
 
-**7-	Tabla Estadísticas_Jugador:** Contiene estadísticas de los jugadores en los partidos (minutos jugados, asistencias, goles y tarjetas recibidas). Se relaciona con la tabla JUGADORES (por intermedio de la FK jugador_id) y con la tabla PARTIDO (por intermedio de la FK partido_id).
+**7-	Tabla estadísticas_jugador:** Contiene estadísticas de los jugadores en los partidos (minutos jugados, asistencias, goles y tarjetas recibidas). Se relaciona con la tabla JUGADORES (por intermedio de la FK jugador_id) y con la tabla PARTIDO (por intermedio de la FK partido_id).
 
 
 | Tabla                | Columna              | Tipo de Datos                         | Tipo de Clave
 | -------------------- | -------------------- | --------------------------------------|--------------
-| Estadisticas_Jugador | estadistica_id       | INT NOT NULL AUTO_INCREMENT           | PK
+| estadisticas_jugador | estadistica_id       | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | partido_id           | INT NOT NULL                          | FK
 |                      | jugador_id           | INT NOT NULL                          | FK
 |                      | goles                | INT NOT NULL                          | 
@@ -163,29 +162,41 @@ descripción de las mismas.
 
 
 
-**8-	Tabla Equipo_competencia:** Tabla intermedia que contiene la relación entre equipos y competencias creada para eliminar la relación muchos a muchos. Se relaciona con la tabla EQUIPO (por intermedio de la FK equipo_id), con la tabla COMPETENCIA (por intermedio de la FK competencia_id) y con la tabla POSICIONES (por intermedio de su PK equipo_competencia_id que se presenta como FK en la tabla POSICIONES).
+**8-	Tabla equipo_competencia:** Tabla intermedia que contiene la relación entre equipos y competencias creada para eliminar la relación muchos a muchos. Se relaciona con la tabla EQUIPO (por intermedio de la FK equipo_id), con la tabla COMPETENCIA (por intermedio de la FK competencia_id) y con la tabla POSICIONES (por intermedio de su PK equipo_competencia_id que se presenta como FK en la tabla POSICIONES).
 
 
 | Tabla                | Columna               | Tipo de Datos                         | Tipo de Clave
 | -------------------- | --------------------- | --------------------------------------|--------------
-| Equipo_competencia   | equipo_competencia_id | INT NOT NULL AUTO_INCREMENT           | PK
+| equipo_competencia   | equipo_competencia_id | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | equipo_id             | INT NOT NULL                          | FK
 |                      | competencia_id        | INT NOT NULL                          | FK
 
 
 
 
-**9-	Tabla Posiciones:** Contiene la posición y puntos obtenidos de cada equipo en cada competencia. Se relaciona con la tabla Equipo_Competencia mediante la FK equipo_competencia_id.
+**9-	Tabla posiciones:** Contiene la posición y puntos obtenidos de cada equipo en cada competencia. Se relaciona con la tabla Equipo_Competencia mediante la FK equipo_competencia_id.
 
 
 | Tabla                | Columna               | Tipo de Datos                         | Tipo de Clave
 | -------------------- | --------------------- | --------------------------------------|--------------
-| Posiciones           | posicion_id           | INT NOT NULL AUTO_INCREMENT           | PK
+| posiciones           | posicion_id           | INT NOT NULL AUTO_INCREMENT           | PK
 |                      | equipo_competencia_id | INT NOT NULL                          | FK
 |                      | posicion              | INT NOT NULL                          | 
 |                      | puntos                | INT NOT NULL                          | 
 
 
+**10-   Tabla log_nuevos_registros:**Esta tabla fué creada con el propósito de registrar de manera automática cada vez que se inserta un nuevo jugador en la tabla jugadores.Este registro automático es gestionado por un trigger llamado after_insert_trigger, que se activa inmediatamente después de que se inserta un nuevo jugador en la tabla jugadores. El trigger inserta en log_nuevos_registros información relevante como la fecha de inserción, los datos del jugador (nombre, apellido, equipo) y el usuario que realizó la acción. Esto es útil para auditorías, mantener la integridad de los datos y verificar qué usuarios han realizado cambios en la base de datos.
+
+
+| Tabla                | Columna               | Tipo de Datos                         | Tipo de Clave
+| -------------------- | --------------------- | --------------------------------------|--------------
+| log_nuevos_registros | id                    | INT NOT NULL AUTO_INCREMENT           | PK
+|                      | fecha                 | TIMESTAMP DEFAULT CURRENT_TIMESTAMP   | 
+|                      | id_jugador            | INT NOT NULL                          | 
+|                      | nombre                | VARCHAR(255)                          | 
+|                      | apellido              | VARCHAR(255)                          | 
+|                      | equipo_id             | INT                                   | 
+|                      | usuario               | VARCHAR(255)                          | 
 
 
 ## Estructura e ingesta de datos
