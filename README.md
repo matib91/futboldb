@@ -455,3 +455,18 @@ CALL registrar_partido('2023-06-01', 1, 2, '5-0', 1);
 ## Roles y Permisos
 
 La generación de usuarios, roles y permisos pueden observarse en el archivo [roles_users.sql](https://github.com/matib91/futboldb/blob/main/sql_project/database_objects/roles_users.sql)
+
+Primero creamos un súper usuario llamado ‘super_admin’ el cual cuenta con todos los privilegios posibles en todas las bases de datos y tablas dentro del servidor MySQL. Esto incluye privilegios para realizar cualquier operación, como SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, GRANT, REVOKE y puede otorgar estos permisos que posee a otros usuarios. 
+Además, el usuario está configurado con la política de seguridad FAILED_LOGIN_ATTEMPTS 3, lo que significa que, si el usuario intenta iniciar sesión y falla 3 veces, su cuenta será bloqueada temporalmente (1 día).
+
+Luego creamos un usuario llamado ‘admin_futboldb’ que, a diferencia del primero solo tiene permisos sobre la base de datos futboldb (puede operar con los datos, realizar operaciones de definición de esquemas, crear vistas, etc) pero NO tiene la capacidad de otorgar sus propios privilegios a otros usuarios.
+
+También hemos creados dos ROLES:
+
+1.	role_select_tablas: Este rol tiene permisos de visualización (SELECT) de todas las tablas y vistas de la base de datos.
+
+2.	role_crud_futbol: tiene permisos completos de CRUD (Create, Read, Update, Delete) en las tablas jugadores, estadisticas_jugador, y partido de la base de datos futboldb. Estos permisos permiten realizar cualquier operación relacionada con la creación, lectura, modificación, y eliminación de datos en esas tres tablas específicas.
+
+Por último, creamos dos usuarios más: ‘cuerpo_tecnico’ al cual se le otorgó el rol: rol_select_tablas e ‘interno_club’ asignándole el rol: rol_crud_futbol respectivamente.
+
+Asignar estos roles con permisos limitados no solo mejora la seguridad, sino que también optimiza el flujo de trabajo, asegurando que cada usuario se enfoque en sus responsabilidades sin riesgos innecesarios. Esto crea un entorno de trabajo más organizado, seguro y eficiente, en el cual las tareas y permisos están claramente definidos.
