@@ -476,3 +476,27 @@ Asignar estos roles con permisos limitados no solo mejora la seguridad, sino que
 Se ha añadido un script del [backup](https://github.com/matib91/futboldb/blob/main/sql_project/backup/bk_futboldb.sql) de la base de datos desarrollada en este proyecto.
 
 Adicionalmente se puede generar el comando `make backup-db` en **CodeSpaces**, el cual permite ejecutar un backup de la base de datos de manera manual.
+
+## Herramientas y tecnologias usadas
+
+* **Makefile**        (Para generar una interfaz sencilla de procesos)
+* **Docker**          (Para generar un container)
+* **MySQL**           (Motor de bases de datos `version: latest`)
+* **MySQL Workbench** (Interfaz gráfica)
+* **ChatGPT**         (Para generar datos ficticios)
+* **Draw.io**         (Para crear el diagrama entidad-relación)
+
+## Como levantar el proyecto en CodeSpaces GitHub
+
+* **env:** Archivo con contraseñas y data secretas.
+* **Makefile:** Abstracción de creacción del proyecto.
+* **docker-compose.yml:** Permite generar la bases de datos en forma de contenedores.
+
+#### Pasos para arrancar el proyecto
+
+* En la terminal de linux escribir :
+    - `make` _En caso de que genere el error de que no existe conexion al socket, volver al correr el comando `make`._
+    - `make clean-db` _Para limpiar la base de datos._
+    - `make test-db` _Para mirar los datos de cada tabla._
+    - `make backup-db` _Para realizar un backup de la base de datos._
+    - `make access-db` _Para acceder a la base de datos._
