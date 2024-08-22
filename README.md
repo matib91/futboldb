@@ -1,4 +1,4 @@
-![alt text](image.png)
+[![SQL-Futbol.png](https://i.postimg.cc/MGfRt1Ps/SQL-Futbol.png)](https://postimg.cc/PLhP5vkZ)
 
 # <center> Entrega Final- Proyecto SQL Coderhouse - Fútbol DB: Centralización y Análisis de Datos en el Mundo del Fútbol </center>
 
