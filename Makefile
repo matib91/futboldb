@@ -49,7 +49,19 @@ test-db:
 
 access-db:
 	@echo "Access to db-client"
-	docker exec -it $(SERVICE_NAME) mysql -u$(MYSQL_USER) -p$(PASSWORD) 
+	docker exec -it $(SERVICE_NAME) mysql -u$(MYSQL_USER) -p$(PASSWORD)
+	
+
+backup-db:
+	@echo "Checking if the backups directory exists..."
+	@mkdir -p ./backups
+	@echo "Backing up database structure and data"
+	# Crear una variable para la fecha actual en formato YYYYMMDD
+	BACKUP_DATE=$(shell date +%Y%m%d)
+	# Dump MySQL database to a file
+	docker exec -it $(SERVICE_NAME) mysqldump -u$(USER) -p$(PASSWORD) $(DATABASE) > ./backups/$(DATABASE)_$(BACKUP_DATE).sql
+	@echo "Backup completed: ./backups/$(DATABASE)_$(BACKUP_DATE).sql"
+ 
 
 
 down:
