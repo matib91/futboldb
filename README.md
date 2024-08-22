@@ -63,6 +63,8 @@ Esta base de datos no solo busca resolver los problemas actuales de desorganizac
 [![DER-My-SQL.png](https://i.postimg.cc/h4bCgbpH/DER-My-SQL.png)](https://postimg.cc/dD3RjdMB)
 
 
+
+
 ## Listado de tablas
 
 En este apartado se hará mención de cada una de las tablas junto a una breve
@@ -450,4 +452,6 @@ CALL actualizar_equipo_jugador(239, 11);
 CALL registrar_partido('2023-06-01', 1, 2, '5-0', 1);
 ```
 
+## Roles y Permisos
 
+La generación de usuarios, roles y permisos pueden observarse en el archivo [roles_users.sql](https://github.com/matib91/futboldb/blob/main/sql_project/database_objects/roles_users.sql)
