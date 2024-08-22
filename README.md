@@ -71,12 +71,12 @@ En este apartado se hará mención de cada una de las tablas junto a una breve
 descripción de las mismas.
 
 **1-	Tabla País:** Contiene información del nombre de los países involucrados en la base de datos. Ésta tabla se relaciona por medio de su Primary Key (PK) con las tablas CIUDAD, JUGADORES y COMPETENCIA siendo una Foreign Key (FK) en éstas.
-```
+
 | Tabla               | Columna               | Tipo de Datos                         | Tipo de Clave
 | --------------------| --------------------- | --------------------------------------|--------------
 | Pais                | pais_id               | INT NOT NULL AUTO_INCREMENT           | PK
 |                     | nombre                | VARCHAR(255) NOT NULL                 |
-```
+
 
  
 
