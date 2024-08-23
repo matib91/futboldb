@@ -517,6 +517,6 @@ Adicionalmente se puede generar el comando `make backup-db` en **CodeSpaces**, e
 
 Como información adicional, dentro de la carpeta [archivos_adicionales](https://github.com/matib91/futboldb/tree/main/sql_project/archivos_adicionales) se encuentran 2 documentos:
 
-*       :En el cual se se encuentra nuevamente la información detallada del proyecto en formato PDF dirigido a quien desee descargar el mismo.
+* **[Documentación_PF](https://github.com/matib91/futboldb/blob/main/sql_project/archivos_adicionales/Documentaci%C3%B3n_PF.pdf)**:En el cual se se encuentra nuevamente la información detallada del proyecto en formato PDF dirigido a quien desee descargar el mismo.
 
 * **[ejemplo_dashboard.pbix](https://github.com/matib91/futboldb/blob/main/sql_project/archivos_adicionales/ejemplo_dashboard.pbix)**: Este archivo es un ejemplo de la creación de un dashboard interactivo en Power BI donde previamente a la generación de este reporte se vinculó la base de datos futboldb con las credenciales pertinentes utilizando el conector que posee la aplicación de MySQL.El reporte fué realizado a modo de ejemplo con la intención de demostrar cómo se pueden utilizar bases de datos para integrar y visualizar datos de manera interactiva a través de Power BI, permitiendo a los usuarios tomar decisiones informadas basadas en análisis visuales y dinámicos. Esta integración es fundamental para aprovechar al máximo la información almacenada, transformando los datos crudos en insights valiosos y accionables.
