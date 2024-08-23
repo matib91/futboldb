@@ -496,12 +496,13 @@ Adicionalmente se puede generar el comando `make backup-db` en **CodeSpaces**, e
 * **MySQL Workbench** (Interfaz gráfica)
 * **ChatGPT**         (Para generar datos ficticios)
 * **Draw.io**         (Para crear el diagrama entidad-relación)
+* **Power BI**        (Para generar dashboard de ejemplo)
 
 ## Como levantar el proyecto en CodeSpaces GitHub
 
 * **env:** Archivo con contraseñas y data secretas.
 * **Makefile:** Abstracción de creacción del proyecto.
-* **docker-compose.yml:** Permite generar la bases de datos en forma de contenedores.
+* **docker-compose.yml:** Permite generar la base de datos en forma de contenedores.
 
 #### Pasos para arrancar el proyecto
 
